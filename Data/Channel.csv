@@ -1,0 +1,101 @@
+Section;Position;X;Y;Z;SedDepth;GrainSize;GrainType;Cover;Pics;0bvs
+1;Lout;160;0;0;5;1-2;Gravely sand over bed rock;Riparian zone, trees rooted in bed rock, grass;2192;
+1;Rout;160;228;0;12.5;1-2;Gravel over bed rock;Bare ground;2192;
+1;Lin;160;64;65;NaN;NaN;NaN;NaN;2192;
+1;Rin;160;168;50;NaN;NaN;NaN;NaN;2192;
+1;Mid;NaN;NaN;NaN;NaN;1-2;Sand with coarse to very coarse;NaN;2192;
+2;Lout;400;0;0;NaN;NaN;Bedrock;NaN;NaN;
+2;Rout;400;204;0;NaN;NaN;bedrock;NaN;NaN;
+2;Lin;400;24;45;NaN;NaN;NaN;NaN;NaN;
+2;Rin;400;166;60;NaN;NaN;NaN;NaN;NaN;
+2;Mid;400;108;50;10;NaN;Sand coarse gravel over bedrock;NaN;NaN;
+3;Lout;640;0;0;NaN;NaN;bedrock;Trees rooted in bedrock, mule fat;2197;
+3;Rout;640;126;0;NaN;NaN;bedrock;shurb rooted in bedrock;2197;
+3;Lin;640;60;80;NaN;NaN;NaN;NaN;2197;
+3;Rin;640;120;75;NaN;NaN;NaN;NaN;2197;
+3;Mid;NaN;NaN;NaN;12.5;0,5-1;Midium sand to coarse sand;NaN;2197;
+4;Lout;916;0;0;NaN;NaN;NaN;bedrock, grass;2207;
+4;Rout;916;132;0;NaN;NaN;NaN;bedrock, grass;2207;
+4;Lin;916;28;85;NaN;NaN;NaN;NaN;2207;
+4;Rin;916;110;60;NaN;NaN;NaN;NaN;2207;
+4;Mid;NaN;NaN;NaN;10;NaN;Sandy gravel;spear grass;2207;
+5;Lout;1156;0;0;NaN;NaN;Bedrock;Sycamore tree, bedrock;2212;
+5;Rout;1156;120;0;NaN;NaN;Silt to Fine sand;grass;2212;
+5;Lin;1156;30;57;NaN;NaN;NaN;NaN;2212;
+5;Rin;1156;114;35;NaN;NaN;NaN;NaN;2212;
+5;Mid;NaN;NaN;NaN;5-10;NaN;Coarse gravel with sand;ragweed ;2212;
+6;Lout;1396;0;0;0;NaN;bedrock;shurb rooted in bedrock;218;
+6;Rout;1396;123;0;5-10;NaN;Silt-medium sand ;bedrock sycamore tree;218;
+6;Lin;1396;24;55;NaN;NaN;NaN;NaN;218;
+6;Rin;1396;93;78;NaN;NaN;NaN;NaN;218;
+6;Mid;NaN;NaN;NaN;20-35;NaN;coarse to very course sand;bare ground;218;
+7;Lout;1636;0;0;NaN;NaN ;Bedrock;Bedrock;2225;
+7;Rout;1636;249;0;30;NaN;silt coarse sand over bedrock;Bay laurel, grasses all over;2225;
+7;Lin;1636;24;55;NaN;NaN;NaN;NaN;2225;
+7;Rin;1636;192;65;NaN;NaN;NaN;NaN;2225;
+7;Mid;NaN;NaN;NaN;NaN;NaN;silt very coarse sand;small shrubs;2225;
+8;Lout;1876;0;0;NaN;NaN;bull rock over bedrock;bare ground, woody debris after point;2231;
+8;Rout;1876;178;0;NaN;NaN;bedrock;bare ground, woody debris after point;2231;
+8;Lin;1876;0;70;NaN;NaN;NaN;NaN;2231;
+8;Rin;1876;135;120;NaN;NaN;NaN;NaN;2231;
+8;Mid;1876;91;98;NaN;NaN;bedrock;bare ground, woody debris after point;2231;
+9;Lout;2116;0;0;NaN;NaN;Bedrock;grass;2236;
+9;Rout;2116;180;0;NaN;NaN;NaN;bare, tree rooted oak;2236;
+9;Lin;2116;81;130;NaN;NaN;NaN;NaN;2236;
+9;Rin;2116;180;95;NaN;NaN;NaN;NaN;2236;
+9;Mid;NaN;NaN;NaN;15;NaN;Very coarse sand;bare ground;2236;
+10;Lout;2356;0;0;35;NaN;Medium sand;NaN;2241;Projection of bank from upstream
+10;Rout;2356;146;0;NaN;NaN;gravel over bed rock;NaN;2241;
+10;Lin;2356;54;105;NaN;NaN;NaN;NaN;2241;
+10;Rin;2356;126;75;NaN;NaN;NaN;NaN;2241;
+10;Mid;2356;62;105;NaN;NaN;BEdrock;NaN;2241;
+11;Lout;2596;0;0;NaN;NaN;BEdrock;grass;2246;
+11;Rout;2596;58;0;NaN;NaN;NaN;grass;2246;
+11;Lin;2596;12;130;NaN;NaN;NaN;grass;2246;
+11;Rin;2596;40;105;NaN;NaN;bedrock;grass;2246;
+11;Mid;NaN;NaN;NaN;10;NaN;Sand very coarse;grass;2246;
+12;Lout;2836;0;0;NaN;NaN;Bedrock;NaN;2251;
+12;Rout;2836;182;0;15;NaN;very coarse sand;NaN;2251;
+12;Lin;2836;72;78;NaN;NaN;NaN;NaN;2251;
+12;Rin;2836;109;59;NaN;NaN;NaN;NaN;2251;
+12;Mid;NaN;NaN;NaN;NaN;NaN;Sand very coarse;NaN;2251;
+13;Lout;3436;0;0;NaN;NaN;Bedrock;Bedrock;2255;
+13;Rout;3436;93;0;5;NaN;Very coarse sand;brushes;2255;
+13;Lin;3436;52;102;NaN;NaN;NaN;NaN;2255;
+13;Rin;3436;86;80;NaN;NaN;NaN;NaN;2255;
+13;Mid;NaN;NaN;NaN;10-20;NaN;coarse sand;ragweed ;2255;
+14;Lout;4036;0;0;25;NaN;Medium sand and silt ;grass and shurbs;2259;
+14;Rout;4036;114;0;25;NaN;Silt to Fine sand;grass and shurbs;2259;
+14;Lin;4036;36;83;NaN;NaN;NaN;NaN;2259;
+14;Rin;4036;72;77;NaN;NaN;NaN;NaN;2259;
+14;Mid;NaN;NaN;NaN;5;NaN;coarse sand;ragweed, sparse grass ;2259;
+15;Lout;4636;0;0;5;NaN;Medium sand;grass;2264;
+15;Rout;4636;114;0;NaN;NaN;sandy silt;grass;2264;
+15;Lin;4636;72;65;NaN;NaN;NaN;NaN;2264;
+15;Rin;4636;106;50;NaN;NaN;NaN;NaN;2264;Bedrock steps
+15;Mid;NaN;NaN;NaN;15;NaN;very coarse sand;Bare ground;2264;Bedrock steps
+16;Lout;5236;0;0;35;NaN;Medium sand and silt ;ragweed ;2268;
+16;Rout;5236;142;0;35;NaN;very fine sand;grass, mulefat;2268;
+16;Lin;5236;36;80;NaN;NaN;NaN;NaN;2268;
+16;Rin;5236;108;59;NaN;NaN;NaN;NaN;2268;
+16;Mid;NaN;NaN;NaN;10;NaN;coarse sand;ragweed ;2268;Bedrock steps
+17;Lout;5836;0;0;15;NaN;Silt to Fine sand;grass;2274;Bedrock steps
+17;Rout;5836;180;0;NaN;NaN;Bedrock;grass;2274;
+17;Lin;5836;96;56;NaN;NaN;NaN;NaN;2274;
+17;Rin;5836;168;85;NaN;NaN;NaN;NaN;2274;
+17;Mid;NaN;NaN;NaN;NaN;NaN;Bedrock;Bare ground;2274;
+18;Lout;6436;0;0;5;NaN;Silt to Fine sand;Bedrock, Oak tree in the riparian zone;2279;
+18;Rout;6436;276;0;10;NaN;fine to mid sand;grass;2279;
+18;Lin;6436;60;110;NaN;NaN;NaN;NaN;2279;
+18;Rin;6436;220;100;NaN;NaN;NaN;NaN;2279;
+18;Mid;6436;137;85;5;NaN;Medium sand;grass, ragweed and sycamore;2279;
+19;Lout;7036;0;0;15;NaN;coarse sand ;grass, mulefat;2285;seeps
+19;Rout;7036;117;0;30-35;0.1-5mm;very fine sand;Bushes, woody debris ;2285;seeps
+19;Lin;7036;18;85;NaN;NaN;NaN;NaN;2285;seeps
+19;Rin;7036;60;57;NaN;NaN;NaN;NaN;2285;seeps
+19;Mid;NaN;NaN;NaN;20;NaN;coarse sand over bedrock;bare ground;2285;seeps
+20;Lout;7396;0;0;NaN;NaN;bedrock, sparse cover with mid sand;ragweed and bay laurel;NaN;Wetland-like vegetation
+20;Rout;7396;312;0;NaN;NaN;bedrock;cat tails, wild cucumber brushes;NaN;
+20;Lin;7396;48;155;NaN;NaN;NaN;NaN;NaN;
+20;Rin;7396;312;120;NaN;NaN;NaN;NaN;NaN;
+20;Mid;7396;208;80;25;NaN;Moist cover rich silt very fine sand;mulefat, cat tails;NaN;
