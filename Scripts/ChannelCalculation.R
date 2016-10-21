@@ -12,7 +12,6 @@ data$Y=data$Y*2.54
 A <- 0
 P <- 0
 
-
 for (i in 1:max(data$Section)){
   
   # extract profile of interest
