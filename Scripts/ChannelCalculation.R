@@ -2,15 +2,16 @@
 # Outfall002 coordenates
 ########################
 
-library(tidyr)
-library(dplyr)
+library(tidyverse)
 
 data=read.csv("Data/ChannelMatlab.csv", sep=";", dec = ",", na.strings = "NaN")  # loading Outfall 002 Data
-data$X=data$X*2.54
-data$Y=data$Y*2.54
+data$X <- data$X*2.54/100
+data$Y <- data$Y*2.54/100
+data$Z <- data$Z/100
 
 A <- 0
 P <- 0
+Y <- 0
 
 for (i in 1:max(data$Section)){
   
@@ -41,6 +42,8 @@ for (i in 1:max(data$Section)){
 #  e <- filter(profile, Position == "Lout") %>%
 #    select(Y,Z)
   
+  z1 <- 1/abs((b$Z-a$Z)/(b$Y-a$Y))
+  z2 <- 1/abs((d$Z-c$Z)/(d$Y-c$Y))
   # Calculate area
   Base <- d$Y-a$Y
   base <- c$Y-b$Y
@@ -60,7 +63,26 @@ for (i in 1:max(data$Section)){
   P[i] <- l1+l2+l3+l4
   
   # calcular pendiente
-  s = 0.02 #For now its a fixed value until we fix our data
+  s = 0.00001 #For now its a fixed value until we fix our data
+  
+  # Iterate over values of y to make them match Qobs
+  b <- base
+  
+  y = 0;
+  
+  Qobs <- 1 * 3.785 / 1000 
+  Q <- (1/n)*(((y/2)*(b+(b+y*(z1+z2))))^(5/3))/((b+y*(sqrt(1+z1^2)+sqrt(1+z2^2)))^(2/3))*(s^(1/2))
+  
+  D <- abs(Q-Qobs)
+  
+  while (D>0.001){
+    y <- y+0.0001
+    Q <- (1/n)*(((y/2)*(b+(b+y*(z1+z2))))^(5/3))/((b+y*(sqrt(1+z1^2)+sqrt(1+z2^2)))^(2/3))*(s^(1/2))
+  D <- abs(Q-Qobs)
+  }
+  
+  Y[i] <- y
+  
 }
 
 R<- A/P
@@ -69,7 +91,7 @@ Q <- A*V
 
 Section <- seq(1:max(data$Section))
 
-flow <- data.frame(Section, A, P, R, V, Q)
+flow <- data.frame(Section, A, P, R, V, Q, Y)
 
 data <- left_join(data, flow, by = "Section")
 
