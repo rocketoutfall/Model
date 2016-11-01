@@ -5,7 +5,7 @@
 library(tidyverse)
 
 data=read.csv("Data/ChannelMatlab.csv", sep=";", dec = ",", na.strings = "NaN")  # loading Outfall 002 Data
-data$X <- data$X*2.54/100
+data$X <- data$X*2.54/100 # Convert to meters 
 data$Y <- data$Y*2.54/100
 data$Z <- data$Z/100
 
@@ -23,7 +23,7 @@ for (i in 1:max(data$Section)){
   plot(profile$Y, -profile$Z)
   # Sys.sleep(2)
   
-  n = mean(profile$n)
+  n = mean(profile$n) # Calculate the mean of n 
   
   # Extract vertices
   
