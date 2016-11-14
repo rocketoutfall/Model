@@ -63,14 +63,14 @@ for (i in 1:max(data$Section)){
   P[i] <- l1+l2+l3+l4
   
   # calcular pendiente
-  s = 0.00001 #For now its a fixed value until we fix our data
+  s = 0.082 #For now its a fixed value until we fix our data
   
   # Iterate over values of y to make them match Qobs
   b <- base
   
   y = 0;
   
-  Qobs <- 1 * 3.785 / 1000 
+  Qobs <- 60 * 3.785 / 1000 
   Q <- (1/n)*(((y/2)*(b+(b+y*(z1+z2))))^(5/3))/((b+y*(sqrt(1+z1^2)+sqrt(1+z2^2)))^(2/3))*(s^(1/2))
   
   D <- abs(Q-Qobs)
@@ -92,8 +92,12 @@ Q <- A*V
 Section <- seq(1:max(data$Section))
 
 flow <- data.frame(Section, A, P, R, V, Q, Y)
-
 data <- left_join(data, flow, by = "Section")
+
+Waterdepth<-data.frame(Section,Y)
+
+write.csv(Waterdepth, file = "Data/WD.csv", row.names = F)
+
 
 write.csv(data, file = "Data/Channel.csv", row.names = F)
 write.csv(flow, file = "Data/Flow.csv", row.names = F)
