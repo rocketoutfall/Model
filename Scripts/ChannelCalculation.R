@@ -5,9 +5,15 @@
 library(tidyverse)
 
 data=read.csv("Data/ChannelMatlab.csv", sep=";", dec = ",", na.strings = "NaN")  # loading Outfall 002 Data
+
 data$X <- data$X*2.54/100 # Convert to meters 
 data$Y <- data$Y*2.54/100
 data$Z <- data$Z/100
+
+slopes=read.csv("Data/slopes.csv")  #integrate slopes
+slopes.expanded <- slopes[rep(row.names(slopes), slopes$Rep), 1:2] %>%
+  select(Slope)
+data <- bind_cols(data, slopes.expanded)
 
 A <- 0
 P <- 0
@@ -18,7 +24,7 @@ for (i in 1:max(data$Section)){
   # extract profile of interest
   profile <- data %>%
     filter(Section == i, !Position == "Mid") %>%
-    select(Position, Y, Z, n)
+    select(Position, Y, Z, n, Slope)
   
   plot(profile$Y, -profile$Z)
   # Sys.sleep(2)
@@ -63,7 +69,9 @@ for (i in 1:max(data$Section)){
   P[i] <- l1+l2+l3+l4
   
   # calcular pendiente
-  s = 0.082 #For now its a fixed value until we fix our data
+  s1 <- filter(profile, Position == "Rout") %>%
+    select(Slope)
+  s <- s1$Slope
   
   # Iterate over values of y to make them match Qobs
   b <- base
