@@ -15,26 +15,26 @@ source(file.path(getwd(), "Plant_Locations", "matrix-functions.R"))
 #######################
 #######################
 
-# PLANT LOCATION GENERATION
+# PLANT LOCATION GENERATION ONLY NEEDS TO BE DONE ONCE, it saves .csvs
 # These save .csvs for each plant in Model>Data>Plants##>FT
 # Not sure why the command line returns NULL, it works fine?
 # Be sure to note how many plants did not have a functional type in the data!! ~2 dont for each combo of FT and OF
 
 # Deep-rooted vs shallow-rooted
-allplants(19, 18, "FT")
-allplants(20, 7, "FT")
-
-# Wetland Status
-allplants(19, 18, "WS")
-allplants(20, 7, "WS")
-
-# Next time:
-# Can try "Habitat" after this fix: Some data entry isnt perfect eg "T/S"
-allplants(19, 18, "Habitat")
-allplants(20, 7, "Habitat")
-
-allplants(20, 7, "N_I")
-allplants(19, 18, "N_I")
+# allplants(19, 18, "FT")
+# allplants(20, 7, "FT")
+# 
+# # Wetland Status
+# allplants(19, 18, "WS")
+# allplants(20, 7, "WS")
+# 
+# # Next time:
+# # Can try "Habitat" after this fix: Some data entry isnt perfect eg "T/S"
+# allplants(19, 18, "Habitat")
+# allplants(20, 7, "Habitat")
+# 
+# allplants(20, 7, "N_I")
+# allplants(19, 18, "N_I")
 
 #######################
 #######################
@@ -77,10 +77,10 @@ makeHM(6, Inv19)
 #i = what position in FT your data is
 #HMdata = name of the matrix you want to run, must be equal to FT[i]
 FT <- c("DR20", "SR20", "DR19", "SR19", "Inv20", "Inv19")
-type <- c("Deep-Rooted", "Shallow-Rooted", "Deep-Rooted", "Shallow-Rooted", "Invasive Grass", "Invasive Grass")
+type <- c("Deep-Rooted", "Shallow-Rooted", "Deep-Rooted", "Shallow-Rooted", "Invasive Grass", "Invasive Grass and Herb")
 CH <- c(20, 20, 19, 19, 20, 19)
 
-#Testing
+#Testing Heat Map improvements
 # Idea for keeping scale relative?
 # btw max in any species plot is 6
 # http://stackoverflow.com/questions/33126894/keep-scale-of-bubbles-consistent-across-multiple-maps-using-draw-bubble-in-mappl
@@ -89,25 +89,4 @@ library(lattice)
 
 i=1
 HMdata=DR20
-colnames(HMdata)  <- c("Bed","Bank", "Upland")
-
-title <- paste("C", CH[i], " Functional Type Density: \n ", type[i], " Species", sep="")
-pal <- colorRampPalette(brewer.pal(9, "Greens"))(256)
-colseq <- seq(0,max(HMdata)+1,by=1)
-
-png(filename = file.path(getwd(), 
-                         "Plant_Locations", 
-                         paste("C", CH[i], FT[i], ".png", sep="")
-),
-width = 460,
-height = 550)
-
-print(levelplot(HMdata, 
-                col.regions=pal,
-                ylab = "From center of creek",
-                xlab = "Transect (1 = Outfall)",
-                colorkey = list(at = colseq, labels=list(at=colseq)),
-                main = title))
-
-dev.off()
 

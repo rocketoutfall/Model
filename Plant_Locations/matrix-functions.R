@@ -114,7 +114,7 @@ ftsummation <- function(OF, type, FT, tnum) {
 
 
 makeHM <- function(i=1, HMdata=DR20, FT = c("DR20", "SR20", "DR19", "SR19", "Inv20", "Inv19"),
-                   type = c("Deep-Rooted", "Shallow-Rooted", "Deep-Rooted", "Shallow-Rooted", "Invasive Grass", "Invasive Grass"),
+                   type = c("Deep-Rooted", "Shallow-Rooted", "Deep-Rooted", "Shallow-Rooted", "Invasive Grass", "Invasive Grass and Herb"),
                    CH = c(20, 20, 19, 19, 20, 19)) {
   #i = what position in FT your data is
   #HMdata = name of the matrix you want to run, must be equal to FT[i]
