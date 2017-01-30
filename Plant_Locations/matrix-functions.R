@@ -8,6 +8,8 @@
 # It doesn't seem to have any affect on the accuracy of the matricies though. So I'm ignoring it.
 
 library(dplyr)
+library(RColorBrewer)
+library(lattice)
 
 #################
 #################
@@ -89,7 +91,7 @@ allplants <- function(OF, tnum, type) {
 
 ftsummation <- function(OF, type, FT, tnum) {
   #FT is the specific variant of the functional type you want (Like, DR or OBL)
-  match <- list.files(path = file.path(getwd(), "Data", paste("Plants", OF, sep=""), type), pattern = FT)
+  match <- list.files(path = file.path(getwd(), "Data", paste("Plants", OF, sep=""), type), pattern = paste("-", FT, sep=""))
   sum <- matrix(ncol = 3, nrow = tnum) %>%
     na.zero()
   
@@ -120,6 +122,7 @@ makeHM <- function(i=1, HMdata=DR20, FT = c("DR20", "SR20", "DR19", "SR19", "Inv
   title <- paste("C", CH[i], " Functional Type Density: \n ", type[i], " Species", sep="")
   pal <- colorRampPalette(brewer.pal(9, "Greens"))(256)
   colseq <- seq(0,max(HMdata)+1,by=1)
+  colnames(HMdata)  <- c("Bed","Bank", "Upland")
   
   png(filename = file.path(getwd(), 
                            "Plant_Locations", 
@@ -130,7 +133,7 @@ makeHM <- function(i=1, HMdata=DR20, FT = c("DR20", "SR20", "DR19", "SR19", "Inv
   
   print(levelplot(HMdata, 
                   col.regions=pal,
-                  ylab = "From center of creek",
+                  ylab = "Horizontal Distribution",
                   xlab = "Transect (1 = Outfall)",
                   colorkey = list(at = colseq, labels=list(at=colseq)),
                   main = title))
