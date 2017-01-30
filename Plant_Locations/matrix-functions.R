@@ -102,3 +102,39 @@ ftsummation <- function(OF, type, FT, tnum) {
   
   return(sum)
 }
+
+#######################
+#######################
+#######################
+# makeHM()
+# Mkae heatmaps and save them in Data
+######################
+
+
+makeHM <- function(i=1, HMdata=DR20, FT = c("DR20", "SR20", "DR19", "SR19", "Inv20", "Inv19"),
+                   type = c("Deep-Rooted", "Shallow-Rooted", "Deep-Rooted", "Shallow-Rooted", "Invasive Grass", "Invasive Grass"),
+                   CH = c(20, 20, 19, 19, 20, 19)) {
+  #i = what position in FT your data is
+  #HMdata = name of the matrix you want to run, must be equal to FT[i]
+  
+  title <- paste("C", CH[i], " Functional Type Density: \n ", type[i], " Species", sep="")
+  pal <- colorRampPalette(brewer.pal(9, "Greens"))(256)
+  colseq <- seq(0,max(HMdata)+1,by=1)
+  
+  png(filename = file.path(getwd(), 
+                           "Plant_Locations", 
+                           paste("C", CH[i], FT[i], ".png", sep="")
+  ),
+  width = 460,
+  height = 550)
+  
+  print(levelplot(HMdata, 
+                  col.regions=pal,
+                  ylab = "From center of creek",
+                  xlab = "Transect (1 = Outfall)",
+                  colorkey = list(at = colseq, labels=list(at=colseq)),
+                  main = title))
+  
+  dev.off()
+  
+}

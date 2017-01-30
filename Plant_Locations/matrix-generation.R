@@ -61,56 +61,21 @@ Inv20 <- ftsummation(20, "N_I", "0", 7)
 
 # HEAT MAP GENERATION
 ##########
-# http://flowingdata.com/2010/01/21/how-to-make-a-heatmap-a-quick-and-easy-solution/
-library(RColorBrewer)
-library(lattice)
 
+#If YOU CHANGE THESE YOU HAVE TO CHANGE THEM IN THE FUNCTION FILE DEFININTIONS FOR HEATMAPS, TOO. 
+# THey are here as reference only!!!
 FT <- c("DR20", "SR20", "DR19", "SR19", "Inv20", "Inv19")
-# FT <- c("OBL", "UPLD", "etc....")
 type <- c("Deep-Rooted", "Shallow-Rooted", "Deep-Rooted", "Shallow-Rooted", "Invasive Grass", "Invasive Grass")
 CH <- c(20, 20, 19, 19, 20, 19)
 
+# Ok, now on to generating theh heatmaps.
+library(RColorBrewer)
+library(lattice)
 
-# before function
-i <- 6
-HMdata <- Inv19
-
-# Making heatmaps 
-title <- paste("C", CH[i], " Functional Type Density: \n ", type[i], " Species", sep="")
-# pal <- brewer.pal(max(HMdata)+1,"Greens")
-pal <- cm.colors(256)
-colseq <- seq(0,max(HMdata)+1,by=1)
-
-png(filename = file.path(getwd(), 
-                         "Plant_Locations", 
-                         paste("C", CH[i], FT[i], ".png", sep="")
-                         ),
-    width = 460,
-    height = 550)
-
-print(levelplot(HMdata, 
-                col.regions=pal,
-                ylab = "From center of creek",
-                xlab = "Transect (1 = Outfall)",
-                colorkey = list(at = colseq, labels=list(at=colseq)),
-                main = title))
-
-dev.off()
-
-
-
-# Origional heatmap, cant do legend
-HM <- heatmap(HMdata, Rowv=NA, Colv=NA,
-              col = pal,
-              scale= "none",
-              margins = c(5,3.5),
-              main = title,
-              #ColSideColors = c(),
-              xlab = "From center of creek",
-              ylab = "Transect (1 = Outfall)"
-)
-
-# Pretty it up like this? 
-# https://learnr.wordpress.com/2010/01/26/ggplot2-quick-heatmap-plotting/
-
+makeHM(1, DR20)
+makeHM(2, SR20)
+makeHM(3, DR19)
+makeHM(4, SR19)
+makeHM(5, Inv20)
+makeHM(6, Inv19)
 
