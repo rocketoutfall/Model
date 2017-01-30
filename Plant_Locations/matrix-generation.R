@@ -30,8 +30,11 @@ allplants(20, 7, "WS")
 
 # Next time:
 # Can try "Habitat" after this fix: Some data entry isnt perfect eg "T/S"
-# allplants(19, 18, "Habitat")
-# allplants(20, 7, "Habitat")
+allplants(19, 18, "Habitat")
+allplants(20, 7, "Habitat")
+
+allplants(20, 7, "N_I")
+allplants(19, 18, "N_I")
 
 #######################
 #######################
@@ -44,6 +47,14 @@ SR19 <- ftsummation(19, "FT", "SR", 18)
 
 DR20 <- ftsummation(20, "FT", "DR", 7)
 SR20 <- ftsummation(20, "FT", "SR", 7)
+
+
+Inv19 <- ftsummation(19, "N_I", "0", 18)
+Inv20 <- ftsummation(20, "N_I", "0", 7)
+
+# THIS DATA STILL NEEDS TO  BE COMPLETED -- only usefull for grasses in 19 right now???
+# Grass20 <- ftsummation(20, "WS", "G", 7)
+  
 #######################
 #######################
 #######################
@@ -51,10 +62,53 @@ SR20 <- ftsummation(20, "FT", "SR", 7)
 # HEAT MAP GENERATION
 ##########
 # http://flowingdata.com/2010/01/21/how-to-make-a-heatmap-a-quick-and-easy-solution/
+library(RColorBrewer)
+library(lattice)
 
-data <- DR19
-heatmap(data, Rowv=NA, Colv=NA, col = cm.colors(256), scale="none", margins=c(5,10))
+FT <- c("DR20", "SR20", "DR19", "SR19", "Inv20", "Inv19")
+# FT <- c("OBL", "UPLD", "etc....")
+type <- c("Deep-Rooted", "Shallow-Rooted", "Deep-Rooted", "Shallow-Rooted", "Invasive Grass", "Invasive Grass")
+CH <- c(20, 20, 19, 19, 20, 19)
 
+
+# before function
+i <- 6
+HMdata <- Inv19
+
+# Making heatmaps 
+title <- paste("C", CH[i], " Functional Type Density: \n ", type[i], " Species", sep="")
+# pal <- brewer.pal(max(HMdata)+1,"Greens")
+pal <- cm.colors(256)
+colseq <- seq(0,max(HMdata)+1,by=1)
+
+png(filename = file.path(getwd(), 
+                         "Plant_Locations", 
+                         paste("C", CH[i], FT[i], ".png", sep="")
+                         ),
+    width = 460,
+    height = 550)
+
+print(levelplot(HMdata, 
+                col.regions=pal,
+                ylab = "From center of creek",
+                xlab = "Transect (1 = Outfall)",
+                colorkey = list(at = colseq, labels=list(at=colseq)),
+                main = title))
+
+dev.off()
+
+
+
+# Origional heatmap, cant do legend
+HM <- heatmap(HMdata, Rowv=NA, Colv=NA,
+              col = pal,
+              scale= "none",
+              margins = c(5,3.5),
+              main = title,
+              #ColSideColors = c(),
+              xlab = "From center of creek",
+              ylab = "Transect (1 = Outfall)"
+)
 
 # Pretty it up like this? 
 # https://learnr.wordpress.com/2010/01/26/ggplot2-quick-heatmap-plotting/
