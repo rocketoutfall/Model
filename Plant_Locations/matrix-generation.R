@@ -51,10 +51,12 @@ SR20 <- ftsummation(20, "FT", "SR", 7)
 
 Inv19 <- ftsummation(19, "N_I", "0", 18)
 Inv20 <- ftsummation(20, "N_I", "0", 7)
+Nat19 <- ftsummation(19, "N_I", "1", 18)
+Nat20 <- ftsummation(20, "N_I", "1", 7)
 
-
-# THIS DATA STILL NEEDS TO  BE COMPLETED -- only usefull for grasses in 19 right now???
-# Grass20 <- ftsummation(20, "WS", "G", 7)
+Tree19 <- ftsummation(19, "Habitat", "T", 18)
+Grass19 <- ftsummation(19, "Habitat", ".-*G", 18)
+Tree20 <- ftsummation(20, "Habitat", "T", 7)
   
 #######################
 #######################
@@ -69,6 +71,11 @@ makeHM(3, DR19)
 makeHM(4, SR19)
 makeHM(5, Inv20)
 makeHM(6, Inv19)
+makeHM(7, Tree19)
+makeHM(8, Grass19)
+makeHM(9, Tree20)
+makeHM(10, Nat19)
+makeHM(11, Nat20)
 
 #######################
 #If YOU CHANGE THESE YOU HAVE TO CHANGE THEM IN THE FUNCTION FILE DEFININTIONS FOR HEATMAPS, TOO. 

@@ -34,9 +34,9 @@ locations <- function(row, outfallfile, tnum) {
   
   data <- read.csv(file.path(getwd(), "Data", outfallfile), header=T)
   pnum <- as.numeric(nrow(data))
-  transects <- data[1:(pnum),8:(tnum+8)]
-  horiz <- data[1:26,5:7]
-  zeros <- matrix(ncol=1, nrow=tnum) %>%
+  transects <- data[1:(pnum), 8:(tnum + 8)]
+  horiz <- data[1:26, 5:7]
+  zeros <- matrix(ncol = 1, nrow = tnum) %>%
     na.zero()
   collect <- c()
   
@@ -113,9 +113,9 @@ ftsummation <- function(OF, type, FT, tnum) {
 ######################
 
 
-makeHM <- function(i=1, HMdata=DR20, FT = c("DR20", "SR20", "DR19", "SR19", "Inv20", "Inv19"),
-                   type = c("Deep-Rooted", "Shallow-Rooted", "Deep-Rooted", "Shallow-Rooted", "Invasive Grass", "Invasive Grass and Herb"),
-                   CH = c(20, 20, 19, 19, 20, 19)) {
+makeHM <- function(i=1, HMdata=DR20, FT = c("DR20", "SR20", "DR19", "SR19", "Inv20", "Inv19", "Tree19", "Grass19", "Tree20", "Nat19", "Nat20"),
+                   type = c("Deep-Rooted", "Shallow-Rooted", "Deep-Rooted", "Shallow-Rooted", "Invasive Grass", "Invasive Grass and Herb", "Tree", "Grass",  "Tree", "Native", "Native"),
+                   CH = c(20, 20, 19, 19, 20, 19, 19, 19, 20, 19, 20)) {
   #i = what position in FT your data is
   #HMdata = name of the matrix you want to run, must be equal to FT[i]
   
