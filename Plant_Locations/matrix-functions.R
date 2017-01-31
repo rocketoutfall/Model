@@ -113,13 +113,13 @@ ftsummation <- function(OF, type, FT, tnum) {
 ######################
 
 
-makeHM <- function(i=1, HMdata=DR20, FT = c("DR20", "SR20", "DR19", "SR19", "Inv20", "Inv19", "Tree19", "Grass19", "Tree20", "Nat19", "Nat20"),
-                   type = c("Deep-Rooted", "Shallow-Rooted", "Deep-Rooted", "Shallow-Rooted", "Invasive Grass", "Invasive Grass and Herb", "Tree", "Grass",  "Tree", "Native", "Native"),
-                   CH = c(20, 20, 19, 19, 20, 19, 19, 19, 20, 19, 20)) {
+makeHM <- function(i=1, HMdata=DR20, FT = c("DR20", "SR20", "DR19", "SR19", "Inv20", "Inv19", "Tree19", "Grass19", "Tree20", "Nat19", "Nat20", "All20"),
+                   type = c("Deep-Rooted", "Shallow-Rooted", "Deep-Rooted", "Shallow-Rooted", "Invasive Grass", "Invasive Grass and Herb", "Tree", "Grass",  "Tree", "Native", "Native", "All"),
+                   CH = c(20, 20, 19, 19, 20, 19, 19, 19, 20, 19, 20, 20)) {
   #i = what position in FT your data is
   #HMdata = name of the matrix you want to run, must be equal to FT[i]
   
-  title <- paste("C", CH[i], " Functional Type Density: \n ", type[i], " Species", sep="")
+  title <- paste("C", CH[i], " Functional Type Diversity: \n ", type[i], " Species", sep="")
   pal <- colorRampPalette(brewer.pal(9, "Greens"))(256)
   colseq <- seq(0,max(HMdata)+1,by=1)
   colnames(HMdata)  <- c("Bed","Bank", "Upland")

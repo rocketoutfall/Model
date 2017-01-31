@@ -57,6 +57,8 @@ Nat20 <- ftsummation(20, "N_I", "1", 7)
 Tree19 <- ftsummation(19, "Habitat", "T", 18)
 Grass19 <- ftsummation(19, "Habitat", ".-*G", 18)
 Tree20 <- ftsummation(20, "Habitat", "T", 7)
+
+All20 <- ftsummation(20, "N_I", "", 7)
   
 #######################
 #######################
@@ -76,6 +78,7 @@ makeHM(8, Grass19)
 makeHM(9, Tree20)
 makeHM(10, Nat19)
 makeHM(11, Nat20)
+makeHM(12, All20)
 
 #######################
 #If YOU CHANGE THESE YOU HAVE TO CHANGE THEM IN THE FUNCTION FILE DEFININTIONS FOR HEATMAPS, TOO. 
