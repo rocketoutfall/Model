@@ -36,6 +36,7 @@ source(file.path(getwd(), "Plant_Locations", "matrix-functions.R"))
 # allplants(20, 7, "N_I")
 # allplants(19, 18, "N_I")
 
+
 #######################
 #######################
 #######################
@@ -59,6 +60,15 @@ Grass19 <- ftsummation(19, "Habitat", ".-*G", 18)
 Tree20 <- ftsummation(20, "Habitat", "T", 7)
 
 All20 <- ftsummation(20, "N_I", "", 7)
+
+UPL20 <- ftsummation(20, "WS", "UPL", 7)
+OBL20 <- ftsummation(20, "WS", "OBL", 7)
+FACU20 <- ftsummation(20, "WS", "FACU", 7)
+FACW20 <- ftsummation(20, "WS", "FACW", 7)
+
+WetHappy20 <- FACU20 + FACW20 + OBL20
+
+WS20_Balance <- WetHappy20/UPL20
   
 #######################
 #######################
@@ -100,3 +110,41 @@ library(lattice)
 i=1
 HMdata=DR20
 
+
+
+# Custom Heatmap for wetland balance
+#normalize the numbers
+WS20_Balance[6,1]=5
+WS20_Balance[7,1]=5
+g <- WS20_Balance*WS20_Balance
+magWSB <- sqrt(sum(g)) #9.419808
+WS_Bnorm <- WS20_Balance/magWSB
+
+HMdata = WS_Bnorm
+i = 1
+FT = c("WS_Bnorm")
+type = c("Functional Type Dominance")
+CH = c(20)
+  #i = what position in FT your data is
+  #HMdata = name of the matrix you want to run, must be equal to FT[i]
+  
+  title <- paste("C", CH[i], " Functional Type Diversity: \n ", type[i], " Species", sep="")
+  pal <- colorRampPalette(c("#EF8C5D", "#FFFF", "#6792CF"))(256)
+  colseq <- seq(0,max(HMdata) + 0.01, by = 0.01)
+  colnames(HMdata)  <- c("Bed","Bank", "Upland")
+  
+  png(filename = file.path(getwd(), 
+                           "Plant_Locations", 
+                           paste("C", CH[i], FT[i], ".png", sep="")
+  ),
+  width = 460,
+  height = 550)
+  
+  print(levelplot(HMdata, 
+                  col.regions=pal,
+                  ylab = "Horizontal Distribution",
+                  xlab = "Transect (1 = Outfall)",
+                  colorkey = list(at = colseq, labels=list(at=colseq)),
+                  main = title))
+  
+  dev.off()
